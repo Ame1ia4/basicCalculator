@@ -1,4 +1,4 @@
-public class division {
+public class Addition {
 
         private double firstInput;
         private double secondInput;
@@ -13,7 +13,7 @@ public class division {
         }
 
         public double getFirstInput() {
-            this.finalInput = firstInput/secondInput;
+            this.finalInput = firstInput + secondInput;
             return finalInput;
         }
 
@@ -21,7 +21,4 @@ public class division {
             return String.format("f%n", finalInput);
         }
     }
-
-//pseudocode:
-// when * is scanned this invokes the multiplication method?
 
