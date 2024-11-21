@@ -18,7 +18,7 @@ public class multiplication {
     }
 
     public String toString() {
-        return String.format("d%n", finalValue);
+        return String.format("f%n", finalValue);
     }
 }
 

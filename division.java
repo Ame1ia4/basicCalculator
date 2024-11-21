@@ -18,7 +18,7 @@ public class division {
         }
 
         public String toString() {
-            return String.format("d%n", finalInput);
+            return String.format("f%n", finalInput);
         }
     }
 
