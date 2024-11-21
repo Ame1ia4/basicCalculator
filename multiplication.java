@@ -1,32 +1,24 @@
 public class multiplication {
 
-    protected int firstValue;
-    protected final int secondValue;
+    private double firstValue;
+    private double secondValue;
+    private double finalValue;
 
-    protected float valueOne;
-    protected final float valueTwo;
-
-public multiplication(int firstValue, int secondValue, float valueOne, float valueTwo){
-
-   int originValue = firstValue;
-
-for(int count=0; count<=secondValue; count++) {
-    firstValue = originValue + firstValue;
-}
-
-float valueOriginal = valueOne;
-
-for(int count=0; count<=valueTwo; count++) {
-    valueOne = valueOriginal + valueOne;
-}
-
-this.firstValue = firstValue;
-this.secondValue = secondValue;
-this.valueOne = valueOne;
-this.valueTwo = valueTwo;
+    public void setFirstValue(double firstValue) {
+        this.firstValue = firstValue;
     }
-    public String toString(){
-        return String.format("%d%f%n", firstValue, valueOne);
+
+    public void setSecondValue(double secondValue){
+        this.secondValue = secondValue;
+    }
+
+    public double getFirstValue() {
+            this.finalValue = firstValue*secondValue;
+        return finalValue;
+    }
+
+    public String toString() {
+        return String.format("d%n", finalValue);
     }
 }
 

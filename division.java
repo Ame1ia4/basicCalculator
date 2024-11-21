@@ -1,33 +1,27 @@
 public class division {
 
-    protected final int firstInput;
-    protected final int secondInput;
+        private double firstInput;
+        private double secondInput;
+        private double finalInput;
 
-    protected final float inputOne;
-    protected final float inputTwo;
-
-
-    public division(int firstInput, int secondInput, float inputOne, float inputTwo){
-
-        int originInput = firstInput;
-
-        for(int count=0; count<=secondInput; count++){
-            firstInput= originInput- firstInput;
+        public void setFirstInput(double firstInput) {
+            this.firstInput = firstInput;
         }
 
-        float inputOriginal = inputOne;
-
-        for(int count=0; count<=inputTwo; count++){
-            inputOne = inputOriginal - inputOne;
+        public void setSecondInput(double secondInput){
+            this.secondInput = secondInput;
         }
 
-        this.firstInput = firstInput;
-        this.secondInput = secondInput;
-        this.inputOne = inputOne;
-        this.inputTwo = inputTwo;
+        public double getFirstInput() {
+            this.finalInput = firstInput/secondInput;
+            return finalInput;
+        }
+
+        public String toString() {
+            return String.format("d%n", finalInput);
+        }
     }
 
-    public String toString(){
-        return String.format("%d%f%n", firstInput, inputOne);
-    }
-}
+//pseudocode:
+// when * is scanned this invokes the multiplication method?
+
