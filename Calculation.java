@@ -28,7 +28,8 @@ public class Calculation {
         try {
             Double.parseDouble(str);
             return true;
-        } catch(NumberFormatException e){
+        }
+        catch(NumberFormatException e){
             return false;
         }
     }
