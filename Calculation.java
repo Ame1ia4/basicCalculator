@@ -16,7 +16,7 @@ public class Calculation {
                 charToCalc[j] += String.valueOf(input.charAt(i));
             }
             j++;
-            //hi
+
 
 
         }
