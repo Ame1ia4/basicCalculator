@@ -8,37 +8,19 @@ public class Main {
         Division division = new Division();
         Subtraction subtraction = new Subtraction();
 
+
         System.out.println("Enter value you are adding to here: ");
-        addition.setFirstInput(input.nextInt());
+        String userInput = input.nextLine();
+        Calculation calc = new Calculation(userInput);
 
-        System.out.println("Enter value you are adding here : ");
-        addition.setSecondInput(input.nextInt());
+        String[] splitInput = calc.StringSplit();
 
-        System.out.printf("Addition result: %f%n", addition.getFirstInput());
+        for(String a: splitInput){
+            System.out.println(a);
+        }
 
-        System.out.println("Enter value you are subtracting from here: ");
-        subtraction.setFirstInput(input.nextInt());
 
-        System.out.println("Enter subtracting value here: ");
-        subtraction.setSecondInput(input.nextInt());
 
-        System.out.printf("Subtraction result: %f%n", subtraction.getFirstInput());
-
-        System.out.println("Enter value you are manipulating here: ");
-        multiplication.setFirstInput(input.nextInt());
-
-        System.out.println("Enter manipulator: ");
-        multiplication.setSecondInput(input.nextInt());
-
-        System.out.printf("Multiplication result: %f%n", multiplication.getFirstInput());
-
-        System.out.println("Enter value you are dividing here: ");
-        division.setFirstInput(input.nextInt());
-
-        System.out.println("Enter divisor: ");
-        division.setSecondInput(input.nextInt());
-
-        System.out.printf("Division result: %f%n", division.getFirstInput());
     }
 
 
