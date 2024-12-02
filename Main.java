@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 public class Main {
 
@@ -13,7 +14,7 @@ public class Main {
         String userInput = input.nextLine();
         Calculation calc = new Calculation(userInput);
 
-        String[] splitInput = calc.StringSplit();
+        ArrayList<String> splitInput = calc.StringSplit3();
 
         for(String a: splitInput){
             System.out.println(a);
