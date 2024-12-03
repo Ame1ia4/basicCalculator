@@ -17,6 +17,7 @@ public class Subtraction extends Addition {
         return finalInput;
     }
 
+    @Override
     public String toString() {
         return String.format("f%n", finalInput);
     }

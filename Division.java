@@ -12,13 +12,13 @@ public class Division extends Addition {
         this.secondInput = secondInput;
     }
 
-        @Override
         public double getFirstInput() {
             this.finalInput = firstInput/secondInput;
             return finalInput;
         }
 
+        @Override
         public String toString() {
-            return String.format("f%n", finalInput);
+        return String.format("f%n", finalInput);
         }
     }
