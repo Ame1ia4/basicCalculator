@@ -8,7 +8,7 @@ public class symbolRecognition {
         Multiplication multiplication = new Multiplication();
         Addition addition = new Addition();
         Subtraction subtraction = new Subtraction();
-
+        Brackets brackets = new Brackets();
 
         //gonna have to flip the array list bc this does it right to left as its starting with the last index
             for(int i = splitInput.size() - 1; i >= 0; i--){
@@ -29,10 +29,7 @@ public class symbolRecognition {
                 splitInput.remove(i + 1);
                 splitInput.remove(i);
             } else if (splitInput.get(i).equals("(")) {
-                splitInput.set(i-1, Double.toString(Double.parseDouble(splitInput.get(i - 1)) * Double.parseDouble(splitInput.get(i + 1))));
-                splitInput.remove(i + 2);
-                splitInput.remove(i + 1);
-                splitInput.remove(i);
+                Brackets.brackets(splitInput);
             }
         }
 
