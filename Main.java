@@ -20,7 +20,7 @@ public class Main {
             System.out.println(a);
         }
 
-        symbolRecognition.recognition(splitInput);
+      symbolRecognition.recognition(splitInput);
 
 
     }

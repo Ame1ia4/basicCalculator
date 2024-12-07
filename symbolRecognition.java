@@ -20,10 +20,19 @@ public class symbolRecognition {
                 splitInput.set(i-1, Double.toString(Double.parseDouble(splitInput.get(i - 1)) - Double.parseDouble(splitInput.get(i + 1))));
                 splitInput.remove(i + 1);
                 splitInput.remove(i);
-            } else if (i == '*') {
-                multiplication.getFirstInput();
-            } else if (i == '/') {
-                division.getFirstInput();
+            } else if (splitInput.get(i).equals("*")) {
+                splitInput.set(i-1, Double.toString(Double.parseDouble(splitInput.get(i - 1)) * Double.parseDouble(splitInput.get(i + 1))));
+                splitInput.remove(i + 1);
+                splitInput.remove(i);
+            } else if (splitInput.get(i).equals("/")) {
+                splitInput.set(i-1, Double.toString(Double.parseDouble(splitInput.get(i - 1)) / Double.parseDouble(splitInput.get(i + 1))));
+                splitInput.remove(i + 1);
+                splitInput.remove(i);
+            } else if (splitInput.get(i).equals("(")) {
+                splitInput.set(i-1, Double.toString(Double.parseDouble(splitInput.get(i - 1)) * Double.parseDouble(splitInput.get(i + 1))));
+                splitInput.remove(i + 2);
+                splitInput.remove(i + 1);
+                splitInput.remove(i);
             }
         }
 
