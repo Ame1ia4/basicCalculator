@@ -21,12 +21,5 @@ public class Main {
         }
 
       symbolRecognition.recognition(splitInput);
-
-
     }
-
-
-
-
-
 }
