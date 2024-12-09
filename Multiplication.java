@@ -1,32 +1,14 @@
-public class Multiplication extends Addition {
+import java.util.ArrayList;
 
-    private double firstInput;
-    private double secondInput;
-    private double finalInput;
+public class Multiplication {
 
-    public void setFirstInput(double firstInput) {
-        this.firstInput = firstInput;
-    }
-
-    public void setSecondInput(double secondInput){
-        this.secondInput = secondInput;
-    }
-
-    public double getFirstInput() {
-        this.finalInput = firstInput*secondInput;
-        return finalInput;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("f%n", finalInput);
+    public static void multiply(ArrayList<String> splitInput) {
+        for (int i = splitInput.size() - 1; i >= 0; i--) {
+            if (splitInput.get(i).equals("*")) {
+                splitInput.set(i - 1, Double.toString(Double.parseDouble(splitInput.get(i - 1)) * Double.parseDouble(splitInput.get(i + 1))));
+                splitInput.remove(i + 1);
+                splitInput.remove(i);
+            }
+        }
     }
 }
-
-//pseudocode:
-// step 1. get symbol * to symbolise multiplication
-// basically when * is scanned this invokes the multiplication method
-// Multiplication(mxn) is m adding to itself n number of times
-//how to achieve this - possibly a for loop that has a count=no. of times adding(n) and adds another m each cycle.
-//
-//

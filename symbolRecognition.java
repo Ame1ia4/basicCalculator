@@ -13,21 +13,13 @@ public class symbolRecognition {
         //gonna have to flip the array list bc this does it right to left as its starting with the last index
             for(int i = splitInput.size() - 1; i >= 0; i--){
             if (splitInput.get(i).equals("+")) {
-                splitInput.set(i - 1, Double.toString(Double.parseDouble(splitInput.get(i - 1)) + Double.parseDouble(splitInput.get(i + 1))));
-                splitInput.remove(i + 1);
-                splitInput.remove(i);
+               addition.add(splitInput);
             } else if (splitInput.get(i).equals("-")) {
-                splitInput.set(i-1, Double.toString(Double.parseDouble(splitInput.get(i - 1)) - Double.parseDouble(splitInput.get(i + 1))));
-                splitInput.remove(i + 1);
-                splitInput.remove(i);
+                subtraction.subtract(splitInput);
             } else if (splitInput.get(i).equals("*")) {
-                splitInput.set(i-1, Double.toString(Double.parseDouble(splitInput.get(i - 1)) * Double.parseDouble(splitInput.get(i + 1))));
-                splitInput.remove(i + 1);
-                splitInput.remove(i);
+               multiplication.multiply(splitInput);
             } else if (splitInput.get(i).equals("/")) {
-                splitInput.set(i-1, Double.toString(Double.parseDouble(splitInput.get(i - 1)) / Double.parseDouble(splitInput.get(i + 1))));
-                splitInput.remove(i + 1);
-                splitInput.remove(i);
+                division.divide(splitInput);
             } else if (splitInput.get(i).equals("(")) {
                 Brackets.brackets(splitInput);
             }

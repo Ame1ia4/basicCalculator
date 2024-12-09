@@ -1,25 +1,15 @@
+import java.util.ArrayList;
+
 public class Addition {
 
-        private double firstInput;
-        private double secondInput;
-        private double finalInput;
-
-        public void setFirstInput(double firstInput) {
-            this.firstInput = firstInput;
-        }
-
-        public void setSecondInput(double secondInput){
-            this.secondInput = secondInput;
-        }
-
-        public double getFirstInput() {
-            this.finalInput = firstInput + secondInput;
-            return finalInput;
-        }
-
-        @Override
-        public String toString() {
-            return String.format("f%n", finalInput);
+    public static void add(ArrayList<String> splitInput) {
+        for (int i = splitInput.size() - 1; i >= 0; i--) {
+            if (splitInput.get(i).equals("+")) {
+                splitInput.set(i - 1, Double.toString(Double.parseDouble(splitInput.get(i - 1)) + Double.parseDouble(splitInput.get(i + 1))));
+                splitInput.remove(i + 1);
+                splitInput.remove(i);
+            }
         }
     }
+}
 
