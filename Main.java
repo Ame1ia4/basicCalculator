@@ -6,7 +6,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter value you are adding to here: ");
         String userInput = input.nextLine();
-        Calculation calc = new Calculation(userInput);
+        Calculations calc = new Calculations(userInput);
 
         ArrayList<String> splitInput = calc.StringSplit3();
 
