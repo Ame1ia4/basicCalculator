@@ -2,6 +2,7 @@ import java.util.ArrayList;
 public class Subtraction {
 
     public static void subtract(ArrayList<String> splitInput) {
+        try {
         for (int i = splitInput.size() - 1; i >= 0; i--) {
             if (splitInput.get(i).equals("-")) {
                 splitInput.set(i - 1, Double.toString(Double.parseDouble(splitInput.get(i + 1)) - Double.parseDouble(splitInput.get(i - 1))));
@@ -9,5 +10,13 @@ public class Subtraction {
                 splitInput.remove(i);
             }
         }
+    } catch (NumberFormatException e) {
+            System.out.println("!Error! Values entered must be numeric! Please try again." );
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("!Error! Invalid Index.. Check Input structure and try again." );
+        } catch (Exception e) {
+            System.out.println("!Unknown Error!:" + e.getMessage());
+        }
     }
 }
+
