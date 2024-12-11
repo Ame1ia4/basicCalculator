@@ -40,3 +40,4 @@ public class Powers {
         }
     }
 
+    //needs to be revised and returned in same format as other calculation classes

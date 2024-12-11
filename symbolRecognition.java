@@ -38,6 +38,3 @@ public class symbolRecognition {
         }
     }
 }
-
-//Apply in main?
-//Adapt maths classes so that (i-1) and (i+1) rather than first and second input
