@@ -50,6 +50,3 @@ public class symbolRecognition {
         return splitInput.get(0);
     }
 }
-
-//Apply in main?
-//Adapt maths classes so that (i-1) and (i+1) rather than first and second input
