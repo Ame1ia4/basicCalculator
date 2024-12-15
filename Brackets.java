@@ -1,59 +1,46 @@
 import java.util.ArrayList;
 public class Brackets {
-
-    public static void brackets(ArrayList<String> splitInput) {
-
-        for (int i = splitInput.size() - 1; i >= 0; i--) {
-            if (splitInput.get(i).equals("(")) {
-                if (splitInput.get(i + 2).equals("+")) {
-                    splitInput.set(i + 1, Double.toString(Double.parseDouble(splitInput.get(i + 1)) + Double.parseDouble(splitInput.get(i + 3))));
-                    splitInput.remove(i + 3);
-                    splitInput.remove(i + 2);
-                } else if (splitInput.get(i + 2).equals("-")) {
-                    splitInput.set(i + 1, Double.toString(Double.parseDouble(splitInput.get(i + 1)) - Double.parseDouble(splitInput.get(i + 3))));
-                    splitInput.remove(i + 3);
-                    splitInput.remove(i + 2);
-                } else if (splitInput.get(i + 2).equals("*")) {
-                    splitInput.set(i + 1, Double.toString(Double.parseDouble(splitInput.get(i + 1)) * Double.parseDouble(splitInput.get(i + 3))));
-                    splitInput.remove(i + 3);
-                    splitInput.remove(i + 2);
-                } else if (splitInput.get(i + 2).equals("/")) {
-                    splitInput.set(i + 1, Double.toString(Double.parseDouble(splitInput.get(i + 1)) / Double.parseDouble(splitInput.get(i + 3))));
-                    splitInput.remove(i + 3);
-                    splitInput.remove(i + 2);
-                }
-
-
-                if (splitInput.get(i - 1).equals("+")) {
-                    splitInput.set(i - 1, Double.toString(Double.parseDouble(splitInput.get(i - 2)) + Double.parseDouble(splitInput.get(i + 1))));
-                    splitInput.remove(i + 2);
-                    splitInput.remove(i + 1);
-                    splitInput.remove(i);
-                } else if (splitInput.get(i - 1).equals("-")) {
-                    splitInput.set(i - 1, Double.toString(Double.parseDouble(splitInput.get(i - 2)) - Double.parseDouble(splitInput.get(i + 1))));
-                    splitInput.remove(i + 2);
-                    splitInput.remove(i + 1);
-                    splitInput.remove(i);
-                } else if (splitInput.get(i - 1).equals("*")) {
-                    splitInput.set(i - 1, Double.toString(Double.parseDouble(splitInput.get(i - 2)) * Double.parseDouble(splitInput.get(i + 1))));
-                    splitInput.remove(i + 2);
-                    splitInput.remove(i + 1);
-                    splitInput.remove(i);
-                } else if (splitInput.get(i - 1).equals("/")) {
-                    splitInput.set(i - 1, Double.toString(Double.parseDouble(splitInput.get(i - 2)) / Double.parseDouble(splitInput.get(i + 1))));
-                    splitInput.remove(i + 2);
-                    splitInput.remove(i + 1);
-                    splitInput.remove(i);
-                } else {
-                    splitInput.set(i - 1, Double.toString(Double.parseDouble(splitInput.get(i - 1)) * Double.parseDouble(splitInput.get(i + 1))));
-                    splitInput.remove(i + 2);
-                    splitInput.remove(i + 1);
-                    splitInput.remove(i);
-                }
-
-            }
-        }
+    ArrayList<String> exprestion;
+    int openBracket;
+    int closingBracket;
+    public Brackets(ArrayList<String> exprestion, int openBracket, int closingBracket ){
+        this.exprestion = exprestion;
+        this.openBracket = openBracket;
+        this.closingBracket = closingBracket;
     }
+    public ArrayList<String> calculate(){
+        ArrayList<String> betweenBrackets = new ArrayList<>();
+        for(int i = openBracket + 1; i < closingBracket; i++){
+            betweenBrackets.add(exprestion.get(i));
+        }
+
+        exprestion.set(openBracket + 1, symbolRecognition.recognition(betweenBrackets));
+        for (int i = openBracket + 2; i < closingBracket--;){
+            exprestion.remove(openBracket + 2);
+        }
+        if(openBracket == 0){
+            exprestion.remove(0);
+        } else if (Calculation.isNumeric(exprestion.get(openBracket - 1 ))) {
+            exprestion.set(openBracket,"*");
+
+        }
+        else {
+            exprestion.remove(openBracket);
+        }
+
+        if(closingBracket == exprestion.size()-1){
+            exprestion.remove(exprestion.size()-1);
+        } else if (Calculation.isNumeric(exprestion.get(closingBracket + 1))) {
+            exprestion.set(closingBracket,"*");
+
+        }
+        else {
+            exprestion.remove(closingBracket);
+        }
+
+        return exprestion;
+    }
+
 }
 
 
