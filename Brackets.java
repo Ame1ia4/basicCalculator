@@ -1,50 +1,51 @@
 import java.util.ArrayList;
 public class Brackets {
-    ArrayList<String> exprestion;
+    ArrayList<String> expression;
     int openBracket;
     int closingBracket;
-    public Brackets(ArrayList<String> exprestion, int openBracket, int closingBracket ){
-        this.exprestion = exprestion;
+
+    public Brackets(ArrayList<String> expression, int openBracket, int closingBracket) {
+        this.expression = expression;
         this.openBracket = openBracket;
         this.closingBracket = closingBracket;
     }
-    public ArrayList<String> calculate(){
-        System.out.println("hi");
-        ArrayList<String> betweenBrackets = new ArrayList<>();
-        for(int i = openBracket + 1; i < closingBracket; i++){
-            System.out.println(exprestion.get(i));
-            betweenBrackets.add(exprestion.get(i));
+
+
+        public ArrayList<String> calculate() {
+            System.out.println("hi");
+            ArrayList<String> betweenBrackets = new ArrayList<>();
+            for (int i = openBracket + 1; i < closingBracket; i++) {
+                System.out.println(expression.get(i));
+                betweenBrackets.add(expression.get(i));
+            }
+
+            expression.set(openBracket + 1, symbolRecognition.recognition(betweenBrackets));
+            for (int i = openBracket + 2; i < closingBracket; ) {
+                expression.remove(openBracket + 2);
+                closingBracket--;
+            }
+            if (openBracket == 0) {
+                expression.remove(0);
+            } else if (Calculation.isNumeric(expression.get(openBracket - 1))) {
+                expression.set(openBracket, "*");
+
+            } else {
+                expression.remove(openBracket);
+            }
+
+            if (closingBracket == expression.size() - 1) {
+                expression.remove(expression.size() - 1);
+            } else if (Calculation.isNumeric(expression.get(closingBracket + 1))) {
+                expression.set(closingBracket, "*");
+
+            } else {
+                expression.remove(closingBracket);
+            }
+
+            return expression;
         }
 
-        exprestion.set(openBracket + 1, symbolRecognition.recognition(betweenBrackets));
-        for (int i = openBracket + 2; i < closingBracket;){
-            exprestion.remove(openBracket + 2);
-            closingBracket--;
-        }
-        if(openBracket == 0){
-            exprestion.remove(0);
-        } else if (Calculation.isNumeric(exprestion.get(openBracket - 1 ))) {
-            exprestion.set(openBracket,"*");
-
-        }
-        else {
-            exprestion.remove(openBracket);
-        }
-
-        if(closingBracket == exprestion.size()-1){
-            exprestion.remove(exprestion.size()-1);
-        } else if (Calculation.isNumeric(exprestion.get(closingBracket + 1))) {
-            exprestion.set(closingBracket,"*");
-
-        }
-        else {
-            exprestion.remove(closingBracket);
-        }
-
-        return exprestion;
     }
-
-}
 
 
 

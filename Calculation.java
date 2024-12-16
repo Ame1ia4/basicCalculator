@@ -1,7 +1,8 @@
 import java.util.ArrayList;
-
 public class Calculation {
     public final String input;
+
+
 
     public Calculation(String input){
         this.input = input;
@@ -17,12 +18,11 @@ public class Calculation {
                 numOrOp += String.valueOf(input.charAt(i));
             }
             charToCalc.add(numOrOp);
-
-
-//hi
         }
         return charToCalc;
     }
+
+
 
     public static boolean isNumeric(String str) {
         try {
@@ -33,5 +33,7 @@ public class Calculation {
             return false;
         }
     }
-   // public abstract ArrayList<String> calculate(ArrayList<String> expression);
+
+
+
 }
