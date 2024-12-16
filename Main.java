@@ -6,7 +6,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter value you are adding to here: ");
         String userInput = input.nextLine();
-        Calculation calc = new Calculation(userInput);
+        Parsing calc = new Parsing(userInput);
 
         ArrayList<String> splitInput = calc.StringSplit3();
 
@@ -14,12 +14,12 @@ public class Main {
 //            System.out.println(a);
 //        }
 
-      symbolRecognition.recognition(splitInput);
+        symbolRecognition.recognition(splitInput);
 
-        Brackets test = new Brackets(splitInput,2,5);
+        Brackets test = new Brackets(splitInput, 2, 5);
         ArrayList<String> afterBrackets = test.calculate();
 
-        for(String a : afterBrackets){
+        for (String a : afterBrackets) {
             System.out.print(a);
         }
 

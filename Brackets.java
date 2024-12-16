@@ -23,7 +23,7 @@ public class Brackets {
         }
         if(openBracket == 0){
             exprestion.remove(0);
-        } else if (Calculation.isNumeric(exprestion.get(openBracket - 1 ))) {
+        } else if (Parsing.isNumeric(exprestion.get(openBracket - 1 ))) {
             exprestion.set(openBracket,"*");
 
         }
@@ -33,7 +33,7 @@ public class Brackets {
 
         if(closingBracket == exprestion.size()-1){
             exprestion.remove(exprestion.size()-1);
-        } else if (Calculation.isNumeric(exprestion.get(closingBracket + 1))) {
+        } else if (Parsing.isNumeric(exprestion.get(closingBracket + 1))) {
             exprestion.set(closingBracket,"*");
 
         }
