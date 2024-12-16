@@ -9,57 +9,49 @@ public class Brackets {
         this.closingBracket = closingBracket;
     }
     public ArrayList<String> calculate(){
-        System.out.println("hi");
+        //create array list that takes the expression between the brackets
         ArrayList<String> betweenBrackets = new ArrayList<>();
         for(int i = openBracket + 1; i < closingBracket; i++){
             System.out.println(exprestion.get(i));
             betweenBrackets.add(exprestion.get(i));
         }
 
+        //set the value of 1 index after the opening bracket to the answer of the expression between the brackets
         exprestion.set(openBracket + 1, symbolRecognition.recognition(betweenBrackets));
+        //remove the other indexes
         for (int i = openBracket + 2; i < closingBracket;){
             exprestion.remove(openBracket + 2);
             closingBracket--;
         }
-        if(openBracket == 0){
-            exprestion.remove(0);
-        } else if (Parsing.isNumeric(exprestion.get(openBracket - 1 ))) {
-            exprestion.set(openBracket,"*");
 
+        // if the opening bracket is the first in the array remove the bracket
+        if(openBracket == 0){
+            exprestion.removeFirst();
         }
+        //else if before the bracket its a number the bracket becomes a multiply sign
+        else if (Parsing.isNumeric(exprestion.get(openBracket - 1 ))) {
+            exprestion.set(openBracket,"*");
+        }
+        //otherwise remove the opening bracket
         else {
             exprestion.remove(openBracket);
         }
 
+        //if the closing bracket is the last value remove it
         if(closingBracket == exprestion.size()-1){
             exprestion.remove(exprestion.size()-1);
+
+        //if the value after the closing bracket is a number make the closing bracket a multiply sign
         } else if (Parsing.isNumeric(exprestion.get(closingBracket + 1))) {
             exprestion.set(closingBracket,"*");
-
         }
+        //otherwise remove the closing bracket
         else {
             exprestion.remove(closingBracket);
         }
 
+        //return the Expression
         return exprestion;
     }
 
 }
-
-
-
-    //need symbol before bracket recognition - COMPLETE
-    //need bracket first recognition
-    //ex: if splitInput[0]="("
-    //or if (splitInput[0]=splitInput.get(i))
-    //{
-    // splitInput.set(i, Double.toString(Double.parseDouble(splitInput.get(i + 1)) + Double.parseDouble(splitInput.get(i + 3))));
-    //                       splitInput.remove(i + 3);
-    //                       splitInput.remove(i + 2);
-    //}}
-    //splitInput.set(i + 1, Double.toString(Double.parseDouble(splitInput.get(i + 1)) / Double.parseDouble(splitInput.get(i + 3))));
-    //                    splitInput.remove(i + 3);
-    //                    splitInput.remove(i + 2);
-
-
-//for loop j
