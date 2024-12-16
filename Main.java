@@ -10,19 +10,27 @@ public class Main {
 
         ArrayList<String> splitInput = calc.StringSplit3();
 
+
+        System.out.println("Input as ArrayList: " + splitInput);
+
+
+        MultiplyDivide.multiplydivide(splitInput);
+
+
+        System.out.println("Processed Output: " + splitInput);
+
 //        for(String a: splitInput){
 //            System.out.println(a);
 //        }
 
-        symbolRecognition.recognition(splitInput);
+        //symbolRecognition.recognition(splitInput);
 
-        Brackets test = new Brackets(splitInput, 2, 5);
-        ArrayList<String> afterBrackets = test.calculate();
+        //Brackets test = new Brackets(splitInput, 2, 5);
+        //ArrayList<String> afterBrackets = test.calculate();
 
-        for (String a : afterBrackets) {
-            System.out.print(a);
-        }
-
-
+        //for (String a : afterBrackets) {
+        // System.out.print(a);
     }
+
+
 }
