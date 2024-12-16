@@ -12,7 +12,7 @@ public class Main {
         if (calculatorType.equals("C")) {
             System.out.println("Enter calculation here: ");
             String userInput = input.nextLine();
-            Calculation calc = new Calculation(userInput);
+            Parsing calc = new Parsing(userInput);
 
             ArrayList<String> splitInput = calc.StringSplit3();
 
