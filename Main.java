@@ -1,28 +1,40 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter value you are adding to here: ");
-        String userInput = input.nextLine();
-        Parsing calc = new Parsing(userInput);
+        Matrices matrices = new Matrices();
 
-        ArrayList<String> splitInput = calc.StringSplit3();
+        System.out.println("Enter C for normal calculator or M for Matrices calculator: ");
+        String calculatorType = input.nextLine();
 
-//        for(String a: splitInput){
-//            System.out.println(a);
-//        }
+        if (calculatorType.equals("C")) {
+            System.out.println("Enter calculation here: ");
+            String userInput = input.nextLine();
+            Calculation calc = new Calculation(userInput);
 
-        symbolRecognition.recognition(splitInput);
+            ArrayList<String> splitInput = calc.StringSplit3();
 
-        Brackets test = new Brackets(splitInput, 2, 5);
-        ArrayList<String> afterBrackets = test.calculate();
+            for (String a : splitInput) {
+                System.out.println(a);
+            }
+            symbolRecognition.recognition(splitInput);
 
-        for (String a : afterBrackets) {
-            System.out.print(a);
+        } else if (calculatorType.equals("M")) {
+            matrices.matrices();
+
+            System.out.println("Enter calculation operand:(+,-,/,*) ");
+            String operand = input.nextLine();
+
+            if (operand.equals("+")) {
+                matrices.matrixAddition();
+            } else if (operand.equals("-")) {
+                matrices.matrixSubtraction();
+            }
+
         }
-
-
     }
 }
+
