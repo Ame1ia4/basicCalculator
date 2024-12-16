@@ -6,13 +6,13 @@ public class Main {
         Scanner input = new Scanner(System.in);
         Matrices matrices = new Matrices();
 
-        System.out.println("Enter C for normal calculator or M for Matrices calculator: ");
+        System.out.println("Enter C for normal calculator, M for Matrices calculator, or m for Music Calculator: ");
         String calculatorType = input.nextLine();
 
         if (calculatorType.equals("C")) {
             System.out.println("Enter calculation here: ");
             String userInput = input.nextLine();
-            Calculation calc = new Calculation(userInput);
+            Calculations calc = new Calculations(userInput);
 
             ArrayList<String> splitInput = calc.StringSplit3();
 
@@ -33,7 +33,13 @@ public class Main {
                 matrices.matrixSubtraction();
             }
 
+        } else if (calculatorType.equals("m")) {
+
+            System.out.println("Insert number of cycles and cycle completion time(seconds) here: ");
+          Frequency frequency = new Frequency(input.nextDouble(), input.nextDouble());
+          frequency.frequencyConversion();
         }
     }
 }
+
 
