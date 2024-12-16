@@ -10,10 +10,19 @@ public class Main {
 
         ArrayList<String> splitInput = calc.StringSplit3();
 
-        for(String a: splitInput){
-            System.out.println(a);
-        }
+//        for(String a: splitInput){
+//            System.out.println(a);
+//        }
 
       symbolRecognition.recognition(splitInput);
+
+        Brackets test = new Brackets(splitInput,2,5);
+        ArrayList<String> afterBrackets = test.calculate();
+
+        for(String a : afterBrackets){
+            System.out.print(a);
+        }
+
+
     }
 }

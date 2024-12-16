@@ -9,14 +9,17 @@ public class Brackets {
         this.closingBracket = closingBracket;
     }
     public ArrayList<String> calculate(){
+        System.out.println("hi");
         ArrayList<String> betweenBrackets = new ArrayList<>();
         for(int i = openBracket + 1; i < closingBracket; i++){
+            System.out.println(exprestion.get(i));
             betweenBrackets.add(exprestion.get(i));
         }
 
         exprestion.set(openBracket + 1, symbolRecognition.recognition(betweenBrackets));
-        for (int i = openBracket + 2; i < closingBracket--;){
+        for (int i = openBracket + 2; i < closingBracket;){
             exprestion.remove(openBracket + 2);
+            closingBracket--;
         }
         if(openBracket == 0){
             exprestion.remove(0);
