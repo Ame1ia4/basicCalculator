@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        Matrices matrices = new Matrices();
+        MatrixAdditionSubtraction matrices = new MatrixAdditionSubtraction();
         MatricesMultiplication matricesMultiplication = new MatricesMultiplication();
 
         System.out.println("Enter C for normal calculator, M for Matrices calculator, or m for Music Calculator: ");
@@ -23,20 +23,7 @@ public class Main {
             System.out.println(BIMDAS.recognition(splitInput));
 
         } else if (calculatorType.equals("M")) {
-
-            System.out.println("Enter calculation operand:(+,-,*) ");
-            String operand = input.nextLine();
-
-            if (operand.equals("+")) {
-                matrices.matrices();
-                matrices.matrixAddition();
-            } else if (operand.equals("-")) {
-                matrices.matrices();
-                matrices.matrixSubtraction();
-            } else if (operand.equals("*")) {
-                matricesMultiplication.matrices();
-                matricesMultiplication.matrixMultiplication();
-            }
+            matrices.matrixFunction();
 
         } else if (calculatorType.equals("m")) {
 

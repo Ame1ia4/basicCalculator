@@ -1,5 +1,5 @@
 import  java.util.Scanner;
-public class MatricesMultiplication extends Matrices{
+public class MatricesMultiplication{
     Scanner input = new Scanner(System.in);
     private int rows;
     private int column1row2;

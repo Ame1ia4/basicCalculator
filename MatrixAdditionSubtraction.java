@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Matrices {
+public class MatrixAdditionSubtraction extends MatricesMultiplication {
     Scanner input = new Scanner(System.in);
     private int rows;
     private int columns;
@@ -7,6 +7,22 @@ public class Matrices {
     int[][] matrix2;
     int[][] sumMatrix;
 
+
+    public void matrixFunction(){
+        System.out.println("Enter calculation operand:(+,-,*) ");
+        String operand = input.nextLine();
+//
+        if (operand.equals("+")) {
+           matrices();
+           matrixAddition();
+        } else if (operand.equals("-")) {
+           matrices();
+           matrixSubtraction();
+        } else if (operand.equals("*")) {
+            super.matrices();
+            super.matrixMultiplication();
+        }
+    }
 
     public void matrices() {
         System.out.println("Enter number of rows: ");
@@ -67,3 +83,5 @@ public class Matrices {
     //enter calculation type
     // call method that calculates matrix1 and matrix2
     // ArrayList<Double> matrix = new ArrayList<Double>(double rows, double columns);?
+//Method…
+
