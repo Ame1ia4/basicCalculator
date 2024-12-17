@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
-public class Decibel implements MusicAspects{
+public class Decibel implements MusicFunctions{
     Scanner input = new Scanner(System.in);
     private double audioOutputV;
     private double audioInputV;
     private double decibel;
+
 
     @Override
     public void function() {

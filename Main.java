@@ -29,11 +29,11 @@ public class Main {
             String function = input.nextLine();
 
             if (function.equals("F")) {
-                Frequency frequency = new Frequency();
-                frequency.function();
+                MusicFunctions musicFunctions = new Frequency();
+                musicFunctions.function();
             } else if (function.equals("dB")) {
-                Decibel dB = new Decibel();
-                dB.function();
+                MusicFunctions musicFunctions = new Decibel();
+                musicFunctions.function();
             }
         }
     }

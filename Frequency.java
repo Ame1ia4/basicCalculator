@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Frequency implements MusicAspects{
+public class Frequency implements MusicFunctions{
     Scanner input = new Scanner(System.in);
 private double numberOfCycles;
 private double cycleTime;
