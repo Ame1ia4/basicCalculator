@@ -11,7 +11,7 @@ public class Brackets extends Calculation {
         if (expression.contains("(")) {
             this.openBracket = expression.lastIndexOf("(");
             boolean foundClosingBracket = false;
-            for (int i = this.openBracket; i < expression.size() & !foundClosingBracket; i++) {
+            for (int i = this.openBracket; i < expression.size()-1 & !foundClosingBracket; i++) {
                 if (expression.get(i).equals(")")) {
                     foundClosingBracket = true;
                     this.closingBracket = i;
