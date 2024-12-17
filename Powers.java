@@ -1,43 +1,46 @@
+import java.util.ArrayList;
+
 public class Powers {
-    private double base;
-    private int exponent;
 
-    public void setBase(double base) {
-        try {
-            this.base = base;
-        } catch (Exception e) {
-            System.out.println("!Error! Could not set base. " + e.getMessage());
-        }
-    }
+    public static void calculatePowers(ArrayList<String> splitInput) {
 
-    public void setExponent(int exponent) {
-        try {
-            this.exponent = exponent;
-        } catch (Exception e) {
-            System.out.println("!Error! Could not set exponent. " + e.getMessage());
-        }
-    }
-
-        public double calculatePower() {
-            double result = 1;
+        for (int i = splitInput.size() - 1; i >= 0; i--) {
             try {
-                if (exponent < 0) {
-                    throw new ArithmeticException("!Error! Exponent cannot be  a negative number. ");
+
+                if (splitInput.get(i).equals("^")) {
+
+                    double base = Double.parseDouble(splitInput.get(i - 1));
+                    int exponent = Integer.parseInt(splitInput.get(i + 1));
+
+
+
+
+                    double result = 1;
+                    if (exponent < 0) {
+                        throw new ArithmeticException("Exponent cannot be negative.");
+                    }
+                    for (int j = 0; j < exponent; j++) {
+                        result *= base;
+                    }
+
+                    if (Double.isInfinite(result)) {
+                        throw new ArithmeticException("The result is too large.");
+                    }
+
+
+                    splitInput.set(i - 1, Double.toString(result));
+                    splitInput.remove(i + 1);
+                    splitInput.remove(i);
                 }
-                for (int i = 0; i < exponent; i++) {
-                    result *= base;
-                }
-                if (Double.isInfinite(result)) {
-                    throw new ArithmeticException("!Error! The result of this calculation is too large. ");
-                }
+            } catch (NumberFormatException e) {
+                System.out.println("!Error! Values entered must be numeric! Please try again.");
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("!Error! Invalid Index. Check input structure and try again.");
             } catch (ArithmeticException e) {
-                System.out.println("!Math Error!" + e.getMessage());
-                result = 0; //Prevents crash
+                System.out.println("!Math Error! " + e.getMessage());
             } catch (Exception e) {
-                System.out.println("!Unknown Error!" + e.getMessage());
+                System.out.println("!Unknown Error! " + e.getMessage());
             }
-            return result;
         }
     }
-
-    //needs to be revised and returned in same format as other calculation classes
+}

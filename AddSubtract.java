@@ -1,22 +1,26 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class AddSubtract {
+public class AddSubtract extends Calculation {
 
-    public static void addsubtract(ArrayList<String> splitInput) {
-        Collections.reverse(splitInput);
+    AddSubtract(ArrayList<String> expression){
+        super(expression);
+        super.expression = expression;
+    }
+    public ArrayList<String> calculate() {
+        Collections.reverse(expression);
 
-        for (int i = splitInput.size() - 1; i >= 0; i--) {
+        for (int i = expression.size() - 1; i >= 0; i--) {
             try {
-                if (splitInput.get(i).equals("+")) {
-                    splitInput.set(i - 1, Double.toString(Double.parseDouble(splitInput.get(i + 1)) + Double.parseDouble(splitInput.get(i - 1))));
-                    splitInput.remove(i + 1);
-                    splitInput.remove(i);
+                if (expression.get(i).equals("+")) {
+                    expression.set(i - 1, Double.toString(Double.parseDouble(expression.get(i + 1)) + Double.parseDouble(expression.get(i - 1))));
+                    expression.remove(i + 1);
+                    expression.remove(i);
 
-                } else if (splitInput.get(i).equals("-")) {
-                    splitInput.set(i - 1, Double.toString(Double.parseDouble(splitInput.get(i + 1)) - Double.parseDouble(splitInput.get(i - 1))));
-                    splitInput.remove(i + 1);
-                    splitInput.remove(i);
+                } else if (expression.get(i).equals("-")) {
+                    expression.set(i - 1, Double.toString(Double.parseDouble(expression.get(i + 1)) - Double.parseDouble(expression.get(i - 1))));
+                    expression.remove(i + 1);
+                    expression.remove(i);
                 }
 
 
@@ -32,6 +36,8 @@ public class AddSubtract {
 
 
         }
+        Collections.reverse(expression);
+        return expression;
 
     }
 }

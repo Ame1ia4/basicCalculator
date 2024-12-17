@@ -20,7 +20,7 @@ public class Main {
             for (String a : splitInput) {
                 System.out.println(a);
             }
-            symbolRecognition.recognition(splitInput);
+            System.out.println(BIMDAS.recognition(splitInput));
 
         } else if (calculatorType.equals("M")) {
 
@@ -35,14 +35,14 @@ public class Main {
                 matrices.matrixSubtraction();
             } else if (operand.equals("*")) {
                 matricesMultiplication.matrices();
-               matricesMultiplication.matrixMultiplication();
+                matricesMultiplication.matrixMultiplication();
             }
 
         } else if (calculatorType.equals("m")) {
 
             System.out.println("Insert number of cycles and cycle completion time(seconds) here: ");
-          Frequency frequency = new Frequency(input.nextDouble(), input.nextDouble());
-          frequency.function();
+            Frequency frequency = new Frequency(input.nextDouble(), input.nextDouble());
+            frequency.function();
         }
     }
 }
