@@ -13,7 +13,7 @@ public class Main {
         if (calculatorType.equals("C")) {
             System.out.println("Enter calculation here: ");
             String userInput = input.nextLine();
-            Calculations calc = new Calculations(userInput);
+            Parsing calc = new Parsing(userInput);
 
             ArrayList<String> splitInput = calc.StringSplit3();
 
@@ -40,9 +40,16 @@ public class Main {
 
         } else if (calculatorType.equals("m")) {
 
-            System.out.println("Insert number of cycles and cycle completion time(seconds) here: ");
-            Frequency frequency = new Frequency(input.nextDouble(), input.nextDouble());
-            frequency.function();
+            System.out.println("What function would you like to use: (F = Frequency dB = Decibel)");
+            String function = input.nextLine();
+
+            if (function.equals("F")) {
+                Frequency frequency = new Frequency();
+                frequency.function();
+            } else if (function.equals("dB")) {
+                Decibel dB = new Decibel();
+                dB.function();
+            }
         }
     }
 }

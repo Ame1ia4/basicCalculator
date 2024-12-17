@@ -1,16 +1,20 @@
+import java.util.Scanner;
+
 public class Frequency implements MusicAspects{
+    Scanner input = new Scanner(System.in);
 private double numberOfCycles;
 private double cycleTime;
 private double frequency;
 
-
-public Frequency(double numberOfCycles, double cycleTime){
-    this.numberOfCycles = numberOfCycles;
-    this.cycleTime = cycleTime;
-}
-
     @Override
     public void function() {
+
+    System.out.println("Enter number of cycles: ");
+    this.numberOfCycles = input.nextInt();
+
+    System.out.println("Enter cycle completion time");
+    this.cycleTime = input.nextInt();
+
         this.frequency = numberOfCycles / cycleTime;
         System.out.println("Frequency: " + frequency + "Hz");
     }
