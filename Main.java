@@ -24,7 +24,7 @@ public class Main {
 
         } else if (calculatorType.equals("M")) {
 
-            System.out.println("Enter calculation operand:(+,-,/,*) ");
+            System.out.println("Enter calculation operand:(+,-,*) ");
             String operand = input.nextLine();
 
             if (operand.equals("+")) {
