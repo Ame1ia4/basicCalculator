@@ -7,13 +7,12 @@ public class AddSubtract {
         Collections.reverse(splitInput);
 
         for (int i = splitInput.size() - 1; i >= 0; i--) {
-            try {
-                if (splitInput.get(i).equals("+")) {
-                    splitInput.set(i - 1, Double.toString(Double.parseDouble(splitInput.get(i + 1)) + Double.parseDouble(splitInput.get(i - 1))));
-                    splitInput.remove(i + 1);
-                    splitInput.remove(i);
-
-                } else if (splitInput.get(i).equals("-")) {
+            try { if (splitInput.get(i).equals("+")) {
+                splitInput.set(i - 1, Double.toString(Double.parseDouble(splitInput.get(i + 1)) + Double.parseDouble(splitInput.get(i - 1))));
+                splitInput.remove(i + 1);
+                splitInput.remove(i);
+            }
+            else if (splitInput.get(i).equals("-")) {
                     splitInput.set(i - 1, Double.toString(Double.parseDouble(splitInput.get(i + 1)) - Double.parseDouble(splitInput.get(i - 1))));
                     splitInput.remove(i + 1);
                     splitInput.remove(i);

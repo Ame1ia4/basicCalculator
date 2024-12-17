@@ -29,16 +29,23 @@ public class symbolRecognition {
         Collections.reverse(splitInput);
             for(int i = splitInput.size() - 1; i >= 0; i--){
             if (splitInput.get(i).equals("*")) {
-                multiplication.multiply(splitInput);
+                MultiplyDivide.multiplydivide(splitInput);
             } else if (splitInput.get(i).equals("/")) {
-                division.divide(splitInput);
+                MultiplyDivide.multiplydivide(splitInput);
             }
         }
         for(int i = splitInput.size() - 1; i >= 0; i--){
             if (splitInput.get(i).equals("+")) {
-                addition.add(splitInput);
+                AddSubtract.addsubtract(splitInput);
             } else if (splitInput.get(i).equals("-")) {
-                subtraction.subtract(splitInput);
+                AddSubtract.addsubtract(splitInput);
+            }
+
+        }
+
+        for(int i = splitInput.size() - 1; i >= 0; i--){
+            if (splitInput.get(i).equals("^")) {
+                Powers.calculatePowers(splitInput);
             }
 
         }
