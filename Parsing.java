@@ -27,6 +27,31 @@ public class Parsing {
 
 
         }
+        try{for (int i = 0; i < expressionSplit.size() - 1; i++) {
+            if(expressionSplit.get(i).equals("-")) {
+                if (i == 0) {
+
+                    String negNum = expressionSplit.get(i);
+                    negNum += expressionSplit.get(i + 1);
+                    expressionSplit.set(i, negNum);
+                    expressionSplit.remove(i + 1);
+                }
+                else if ((!(Parsing.isNumeric(expressionSplit.get(i-1))))){
+
+                    String negNum = expressionSplit.get(i);
+                    negNum += expressionSplit.get(i + 1);
+                    expressionSplit.set(i, negNum);
+                    expressionSplit.remove(i + 1);
+
+                }
+            }
+        }
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("prob");
+        }
+
+
+
         return expressionSplit;
     }
 
