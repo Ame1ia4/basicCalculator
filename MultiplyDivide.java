@@ -1,28 +1,35 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MultiplyDivide {
+public class MultiplyDivide extends Calculation {
 
-    public static void multiplydivide(ArrayList<String> splitInput) {
-Collections.reverse(splitInput);
+    MultiplyDivide(ArrayList<String> expression){
+        super(expression);
+
+    }
+
+    @Override
+    public ArrayList<String> calculate() {
+        Collections.reverse(expression);
         try { //Put logic in try block so error handling can be done at end with catch blocks
-            for (int i = splitInput.size() - 1; i >= 0; i--) {
-                if (splitInput.get(i).equals("/")) {
+            for (int i = expression.size() - 1; i >= 0; i--) {
+                if (expression.get(i).equals("/")) {
                     // Div by zero error handler
-                    if (Double.parseDouble(splitInput.get(i + 1)) == 0) {
+                    if (Double.parseDouble(expression.get(i + 1)) == 0) {
                         throw new ArithmeticException("Divisor cannot equal to zero. Please try again!");
                     }
 
-                    splitInput.set(i - 1, Double.toString(Double.parseDouble(splitInput.get(i + 1)) / Double.parseDouble(splitInput.get(i - 1))));
-                    splitInput.remove(i + 1);
-                    splitInput.remove(i);
+                    expression.set(i - 1, Double.toString(Double.parseDouble(expression.get(i + 1)) / Double.parseDouble(expression.get(i - 1))));
+                    expression.remove(i + 1);
+                    expression.remove(i);
                 }
-                else if (splitInput.get(i).equals("*")) {
-                    splitInput.set(i - 1, Double.toString(Double.parseDouble(splitInput.get(i + 1)) * Double.parseDouble(splitInput.get(i - 1))));
-                    splitInput.remove(i + 1);
-                    splitInput.remove(i);
+                else if (expression.get(i).equals("*")) {
+                    expression.set(i - 1, Double.toString(Double.parseDouble(expression.get(i + 1)) * Double.parseDouble(expression.get(i - 1))));
+                    expression.remove(i + 1);
+                    expression.remove(i);
                 }
             }
+            Collections.reverse(expression);
         } catch (ArithmeticException e) {
             System.out.println("!Math Error!"+e.getMessage());
         } catch (NumberFormatException e) {
@@ -30,10 +37,11 @@ Collections.reverse(splitInput);
         } catch (IndexOutOfBoundsException e) {
             System.out.println("!Index Error!" + e.getMessage());
         }
+        return expression;
 
     }
 
-    }
+}
 
 
 

@@ -20,7 +20,7 @@ public class Main {
             for (String a : splitInput) {
                 System.out.println(a);
             }
-            symbolRecognition.recognition(splitInput);
+            BIMDAS.recognition(splitInput);
 
         } else if (calculatorType.equals("M")) {
 
