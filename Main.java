@@ -4,8 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        MatrixAdditionSubtraction matrices = new MatrixAdditionSubtraction();
-        MatricesMultiplication matricesMultiplication = new MatricesMultiplication();
+        Matrices matrices = new Matrices();
 
         System.out.println("Enter C for normal calculator, M for Matrices calculator, or m for Music Calculator: ");
         String calculatorType = input.nextLine();
@@ -24,7 +23,6 @@ public class Main {
 
         } else if (calculatorType.equals("M")) {
             matrices.matrixFunction();
-
         } else if (calculatorType.equals("m")) {
 
             System.out.println("What function would you like to use: (F = Frequency dB = Decibel)");

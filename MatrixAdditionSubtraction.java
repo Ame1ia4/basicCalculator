@@ -7,23 +7,6 @@ public class MatrixAdditionSubtraction extends MatricesMultiplication {
     int[][] matrix2;
     int[][] sumMatrix;
 
-
-    public void matrixFunction(){
-        System.out.println("Enter calculation operand:(+,-,*) ");
-        String operand = input.nextLine();
-//
-        if (operand.equals("+")) {
-           matrices();
-           matrixAddition();
-        } else if (operand.equals("-")) {
-           matrices();
-           matrixSubtraction();
-        } else if (operand.equals("*")) {
-            super.matrices();
-            super.matrixMultiplication();
-        }
-    }
-
     public void matrices() {
         System.out.println("Enter number of rows: ");
         this.rows = input.nextInt();
