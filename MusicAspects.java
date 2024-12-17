@@ -1,6 +1,5 @@
 public interface MusicAspects {
 
-   public void frequencyConversion();
+   public void function();
 
-   public void pitchConversion();
 }

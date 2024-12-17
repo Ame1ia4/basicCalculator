@@ -10,14 +10,10 @@ public Frequency(double numberOfCycles, double cycleTime){
 }
 
     @Override
-    public void frequencyConversion() {
+    public void function() {
         this.frequency = numberOfCycles / cycleTime;
         System.out.println("Frequency: " + frequency + "Hz");
     }
 
-    @Override
-    public void pitchConversion() {
-
-    }
 }
 //frequency conversion formula = f=1/T number of cycles divided by cycle completion time
