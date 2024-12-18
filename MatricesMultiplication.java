@@ -54,7 +54,7 @@ public class MatricesMultiplication{
                 for (int k = 0; k < column1row2; k++) {
                     //matrices multiply to produce product matrices and is then printed out
                     this.product[i][j] += this.matrix1[i][k] * this.matrix2[k][j];
-                    //Prints to terminal, tabs in between indices
+                    //Prints to terminal, tabs in between indices to space them out
                     System.out.print(this.product[i][j] + "\t");
                 }
                 System.out.println();

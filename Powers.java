@@ -13,7 +13,7 @@ public class Powers extends Calculation {
     public ArrayList<String> calculate() {
         Collections.reverse(expression); // reverses expression
 
-        //for loop iterates through calculation array and finds size
+        //for loop iterates through calculation array and examines every element
         for (int i = expression.size() - 1; i >= 0; i--) {
             try {
                 if (expression.get(i).equals("^")) { // finds position of ^ in the array

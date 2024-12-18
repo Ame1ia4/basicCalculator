@@ -32,7 +32,7 @@ public class Brackets extends Calculation {
             }
 
             expression.set(openBracket + 1, BIMDAS.orderOfOps(betweenBrackets));//sets the element after the opening bracket to the result of what is between the brackets
-            //for loop used to remove everything after the the resulting element
+            //for loop used to remove everything after the resulting element
             for (int i = openBracket + 2; i < closingBracket; ) {
                 expression.remove(openBracket + 2);
                 closingBracket--;//moves back the pointer of the closing bracket when an element is removed
@@ -63,7 +63,7 @@ public class Brackets extends Calculation {
                 expression.remove(closingBracket);
             }
         }
-        return expression;//return the expression if there was brackets one set will have been removed
+        return expression;//return the expression if there were brackets one set will have been removed
     }
 }
 
