@@ -9,10 +9,10 @@ private double frequency;
     @Override
     public void function() {
 
-    System.out.println("Enter number of cycles: ");
+    System.out.println("Enter number of cycles of a periodic symbol: ");
     this.numberOfCycles = input.nextInt();
 
-    System.out.println("Enter cycle completion time");
+    System.out.println("Enter cycle completion time: ");
     this.cycleTime = input.nextInt();
 
         this.frequency = numberOfCycles / cycleTime;
