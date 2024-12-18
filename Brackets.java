@@ -1,26 +1,25 @@
 import java.util.ArrayList;
 public class Brackets extends Calculation {
-    int openBracket;
-    int closingBracket;
+    private int openBracket = 0;
+    private int closingBracket = 0;
     public Brackets(ArrayList<String> expression ){
         super(expression);
-        super.expression = expression;
     }
-
+    @Override
     public ArrayList<String> calculate() {
-        if (expression.contains("(")) {
-            this.openBracket = expression.lastIndexOf("(");
+        System.out.println(expression);
+        if (expression.contains("(")){
+            openBracket = expression.lastIndexOf("(");
             boolean foundClosingBracket = false;
-            for (int i = this.openBracket; i < expression.size()-1 & !foundClosingBracket; i++) {
+            for (int i = openBracket; i < expression.size() && !foundClosingBracket; i++) {
                 if (expression.get(i).equals(")")) {
                     foundClosingBracket = true;
-                    this.closingBracket = i;
+                    closingBracket = i;
                 }
             }
 
             ArrayList<String> betweenBrackets = new ArrayList<>();
             for (int i = openBracket + 1; i < closingBracket; i++) {
-                System.out.println(expression.get(i));
                 betweenBrackets.add(expression.get(i));
             }
 
@@ -31,26 +30,27 @@ public class Brackets extends Calculation {
             }
             if (openBracket == 0) {
                 expression.remove(0);
+                closingBracket--;
             } else if (Parsing.isNumeric(expression.get(openBracket - 1))) {
                 expression.set(openBracket, "*");
 
             } else {
                 expression.remove(openBracket);
+                closingBracket--;
             }
 
-            if (closingBracket == expression.size() - 1) {
+            if (closingBracket == expression.size() -1) {
                 expression.remove(expression.size() - 1);
             } else if (Parsing.isNumeric(expression.get(closingBracket + 1))) {
                 expression.set(closingBracket, "*");
-
             } else {
                 expression.remove(closingBracket);
             }
-
-        }
-        return expression;
+            System.out.println(expression);
+        }return expression;
     }
 }
+
 
 
 // brackets on own

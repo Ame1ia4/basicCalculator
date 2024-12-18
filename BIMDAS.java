@@ -4,9 +4,10 @@ public class BIMDAS {
 
 
     public static String recognition(ArrayList<String> splitInput) {
+
         Calculation calculator = new Brackets(splitInput);
-        while(splitInput.contains("(")){
-            calculator.calculate();
+        while(calculator.getExpression().contains("(")){
+            calculator = new Brackets(calculator.calculate());
         }
         calculator = new Powers(calculator.calculate());
         calculator = new MultiplyDivide(calculator.calculate());

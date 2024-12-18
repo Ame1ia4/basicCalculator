@@ -16,9 +16,7 @@ public class Main {
 
             ArrayList<String> splitInput = calc.StringSplit3();
 
-            for (String a : splitInput) {
-                System.out.println(a);
-            }
+
             System.out.println(BIMDAS.recognition(splitInput));
 
         } else if (calculatorType.equals("M")) {
