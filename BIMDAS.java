@@ -7,7 +7,8 @@ public class BIMDAS {
 
         //creates Brackets object under Calculation since Brackets is a subclass of Calculation
         Calculation calculator = new Brackets(splitInput);
-        while(calculator.getExpression().contains("(")){//checks for brackets in the users calculation input
+        while(calculator.getExpression().contains("(")){
+            //checks for brackets in the users calculation input
             calculator = new Brackets(calculator.calculate());//while brackets are present calculator calls Brackets calculate method
         }
         //this section runs through all of our operation classes in order of operations
