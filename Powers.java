@@ -15,30 +15,35 @@ public class Powers extends Calculation {
 
                 if (expression.get(i).equals("^")) {
 
-                    double base = Double.parseDouble(expression.get(i - 1));
-                    int exponent = Integer.parseInt(expression.get(i + 1));
+                    double base = Double.parseDouble(expression.get(i + 1));
+                    int exponent = Integer.parseInt(expression.get(i - 1));
 
 
                     double result = 1;
                     if (exponent < 0) {
-                        throw new ArithmeticException("Exponent cannot be negative.");
-                    }
-                    for (int j = 0; j < exponent; j++) {
-                        result *= base;
-                    }
+                        for (int j = 0; j < exponent*(-1); j++) {
+                            result *= base;
+                        }
+                        expression.set(i + 1, "1");
+                        expression.set(i,"/");
+                        expression.set(i-1,String.format("%f",result));
 
+                    }
+                    else {
+                        for (int j = 0; j < exponent; j++) {
+                            result *= base;
+                        }
+                        expression.set(i - 1, Double.toString(result));
+                        expression.remove(i + 1);
+                        expression.remove(i);
+                    }
                     if (Double.isInfinite(result)) {
                         throw new ArithmeticException("The result is too large.");
                     }
-
-
-                    expression.set(i - 1, Double.toString(result));
-                    expression.remove(i + 1);
-                    expression.remove(i);
                 }
 
             } catch (NumberFormatException e) {
-                System.out.println("!Error! Values entered must be numeric! Please try again.");
+                System.err.println("!Error! Values entered must be numeric! Please try again.");
             } catch (IndexOutOfBoundsException e) {
                 System.out.println("!Error! Invalid Index. Check input structure and try again.");
             } catch (ArithmeticException e) {
@@ -47,6 +52,7 @@ public class Powers extends Calculation {
                 System.out.println("!Unknown Error! " + e.getMessage());
             }
         }
+        Collections.reverse(expression);
         return expression;
     }
 }
