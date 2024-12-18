@@ -47,7 +47,7 @@ public class Parsing {
                 }else if(i == 0){
 
                 }
-                else if ((!(Parsing.isNumeric(expressionSplit.get(i-1))))){
+                else if ((!(Parsing.isNumeric(expressionSplit.get(i-1)))&&Parsing.isNumeric(expressionSplit.get(i+1)))){
 
                     String negNum = expressionSplit.get(i);
                     negNum += expressionSplit.get(i + 1);

@@ -18,10 +18,20 @@ public class AddSubtract extends Calculation {
                     expression.remove(i);
 
                 } else if (expression.get(i).equals("-")) {
-
-                    expression.set(i - 1, Double.toString(Double.parseDouble(expression.get(i + 1)) - Double.parseDouble(expression.get(i - 1))));
-                    expression.remove(i + 1);
-                    expression.remove(i);
+                    if(i == expression.size() - 1 && Parsing.isNumeric(expression.get(i-1)) ){
+                        expression.set(expression.size()-1,Double.toString(Double.parseDouble(expression.get(i-1)) * (-1)));
+                        expression.remove(i-1);
+                    }
+                    //---5  5---
+                    else if (!Parsing.isNumeric(expression.get(i+1))){
+                        expression.set(i,Double.toString(Double.parseDouble(expression.get(i-1)) * (-1)));
+                        expression.remove(i-1);
+                    }
+                    else {
+                        expression.set(i - 1, Double.toString(Double.parseDouble(expression.get(i + 1)) - Double.parseDouble(expression.get(i - 1))));
+                        expression.remove(i + 1);
+                        expression.remove(i);
+                    }
                 }
 
 
