@@ -29,7 +29,7 @@ public class Parsing {
                 i++;
                 numOrOp += String.valueOf(input.charAt(i));
             }
-            //then add the final number or operator is added to the arraylist
+            //then the final number or operator is added to the arraylist
             expressionSplit.add(numOrOp);
 
 
