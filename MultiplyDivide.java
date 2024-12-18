@@ -19,14 +19,16 @@ public class MultiplyDivide extends Calculation {
                         throw new ArithmeticException("Divisor cannot equal to zero. Please try again!");
                     }
 
+                    //sets index position i-1 to result of division between i+1 and i-1
                     expression.set(i - 1, Double.toString(Double.parseDouble(expression.get(i + 1)) / Double.parseDouble(expression.get(i - 1))));
-                    expression.remove(i + 1);
-                    expression.remove(i);
+                    expression.remove(i + 1);//removes leftover indices element
+                    expression.remove(i);//removes leftover indices element
                 }
-                else if (expression.get(i).equals("*")) {
+                else if (expression.get(i).equals("*")) {//if index position i = "*"
+                    //sets index position i-1 to result of multiplication between i+1 and i-1
                     expression.set(i - 1, Double.toString(Double.parseDouble(expression.get(i + 1)) * Double.parseDouble(expression.get(i - 1))));
-                    expression.remove(i + 1);
-                    expression.remove(i);
+                    expression.remove(i + 1);//removes leftover indices element
+                    expression.remove(i);//removes leftover indices element
                 }
             }
             Collections.reverse(expression);
@@ -37,7 +39,7 @@ public class MultiplyDivide extends Calculation {
         } catch (IndexOutOfBoundsException e) {
             System.out.println("!Index Error!" + e.getMessage());
         }
-        return expression;
+        return expression;//returns result of multiplication and/or division
 
     }
 
