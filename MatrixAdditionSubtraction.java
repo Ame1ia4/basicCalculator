@@ -53,7 +53,7 @@ public class MatrixAdditionSubtraction extends MatricesMultiplication {
 
     //method to subtract matrices and print out sum matrix
         public void matrixSubtraction() {
-            int[][] sumMatrix = new int[this.rows][this.columns];
+            this.sumMatrix = new int[this.rows][this.columns];
 
                 System.out.println("Matrix Calculation: ");
                 for (int i = 0; i < this.rows; i++) {
