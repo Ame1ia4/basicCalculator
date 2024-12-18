@@ -12,15 +12,21 @@ public class Powers extends Calculation {
         Collections.reverse(expression);
         for (int i = expression.size() - 1; i >= 0; i--) {
             try {
-
                 if (expression.get(i).equals("^")) {
 
                     double base = Double.parseDouble(expression.get(i + 1));
-                    int exponent = Integer.parseInt(expression.get(i - 1));
+                    double exponent = Double.parseDouble(expression.get(i - 1));
 
 
                     double result = 1;
-                    if (exponent < 0) {
+                    if (exponent % 1 != 0){
+                        result = Math.pow(base,exponent);
+                        expression.set(i - 1, Double.toString(result));
+                        expression.remove(i + 1);
+                        expression.remove(i);
+
+                    }
+                    else if (exponent < 0) {
                         for (int j = 0; j < exponent*(-1); j++) {
                             result *= base;
                         }
