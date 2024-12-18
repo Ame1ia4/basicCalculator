@@ -9,7 +9,7 @@ private double frequency;
     @Override
     public void function() {
 
-    System.out.println("Enter number of cycles of a periodic symbol: ");
+    System.out.println("Enter number of cycles of a periodic signal: ");
     this.numberOfCycles = input.nextInt();
 
     System.out.println("Enter cycle completion time: ");
