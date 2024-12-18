@@ -8,6 +8,7 @@ public class BIMDAS {
         while(splitInput.contains("(")){
             calculator.calculate();
         }
+        calculator = new Powers(calculator.calculate());
         calculator = new MultiplyDivide(calculator.calculate());
         calculator = new AddSubtract(calculator.calculate());
         calculator.calculate();

@@ -53,3 +53,7 @@ public class Brackets extends Calculation {
 }
 
 
+// brackets on own
+// 5(12) but needs to multiply
+// 5+(12-2) - throws error and gets rid of the 5 whyyyyyyyy
+// parsing for example 123(123)-123

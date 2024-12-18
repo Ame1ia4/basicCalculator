@@ -1,18 +1,22 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class Powers {
+public class Powers extends Calculation {
 
-    public static void calculatePowers(ArrayList<String> splitInput) {
+    Powers(ArrayList<String> expression) {
+        super(expression);
+    }
 
-        for (int i = splitInput.size() - 1; i >= 0; i--) {
+    @Override
+    public ArrayList<String> calculate() {
+        Collections.reverse(expression);
+        for (int i = expression.size() - 1; i >= 0; i--) {
             try {
 
-                if (splitInput.get(i).equals("^")) {
+                if (expression.get(i).equals("^")) {
 
-                    double base = Double.parseDouble(splitInput.get(i - 1));
-                    int exponent = Integer.parseInt(splitInput.get(i + 1));
-
-
+                    double base = Double.parseDouble(expression.get(i - 1));
+                    int exponent = Integer.parseInt(expression.get(i + 1));
 
 
                     double result = 1;
@@ -28,10 +32,11 @@ public class Powers {
                     }
 
 
-                    splitInput.set(i - 1, Double.toString(result));
-                    splitInput.remove(i + 1);
-                    splitInput.remove(i);
+                    expression.set(i - 1, Double.toString(result));
+                    expression.remove(i + 1);
+                    expression.remove(i);
                 }
+
             } catch (NumberFormatException e) {
                 System.out.println("!Error! Values entered must be numeric! Please try again.");
             } catch (IndexOutOfBoundsException e) {
@@ -42,5 +47,6 @@ public class Powers {
                 System.out.println("!Unknown Error! " + e.getMessage());
             }
         }
+        return expression;
     }
 }
