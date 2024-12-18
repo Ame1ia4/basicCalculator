@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.InputMismatchException;
+
 
 public class MultiplyDivide extends Calculation {
 
@@ -16,7 +18,7 @@ public class MultiplyDivide extends Calculation {
                 if (expression.get(i).equals("/")) {//if index position i = "/"
                     // Div by zero error handler
                     if (Double.parseDouble(expression.get(i - 1)) == 0) {
-                        throw new ArithmeticException("Divisor cannot equal to zero. Please try again!");
+                        throw new ArithmeticException("!Error! Divisor cannot equal to zero. Please try again!");
                     }
 
                     //sets index position i-1 to result of division between i+1 and i-1
@@ -33,14 +35,12 @@ public class MultiplyDivide extends Calculation {
             }
             Collections.reverse(expression);
         } catch (ArithmeticException e) {
-            System.out.println("!Math Error!"+e.getMessage());
-        } catch (NumberFormatException e) {
-            System.out.println("!Format Error!" + e.getMessage());
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("!Index Error!" + e.getMessage());
+            System.out.println(e.getMessage());
+        } catch (InputMismatchException e) {
+            System.out.println("!Error! Values entered must be numeric. Please try again!");
         }
-        return expression;//returns result of multiplication and/or division
 
+        return expression;//returns result of multiplication and/or division
     }
 
 }
