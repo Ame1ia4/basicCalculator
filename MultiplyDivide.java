@@ -15,7 +15,7 @@ public class MultiplyDivide extends Calculation {
             for (int i = expression.size() - 1; i >= 0; i--) {
                 if (expression.get(i).equals("/")) {
                     // Div by zero error handler
-                    if (Double.parseDouble(expression.get(i + 1)) == 0) {
+                    if (Double.parseDouble(expression.get(i - 1)) == 0) {
                         throw new ArithmeticException("Divisor cannot equal to zero. Please try again!");
                     }
 

@@ -1,3 +1,4 @@
+import javax.management.RuntimeErrorException;
 import java.util.ArrayList;
 
 public class Parsing {
@@ -13,6 +14,12 @@ public class Parsing {
 
         //for loop that looks at each character to see if it should be apart of a number or on its own e.g "*"
         for (int i = 0; i < input.length(); i++) {
+
+            //case that white space exists within an input method just discards it
+            while(input.charAt(i) == ' '){
+                i++;
+            }
+
             //create a string that will either be a number or an operator
             String numOrOp = String.valueOf(input.charAt(i));
 
@@ -27,14 +34,18 @@ public class Parsing {
 
 
         }
+        //case that minus is needed to be passed to the next number
         try{for (int i = 0; i < expressionSplit.size() - 1; i++) {
+            //if the index is a minus
             if(expressionSplit.get(i).equals("-")) {
-                if (i == 0) {
-
+                //if the index is 0 then its passed to the next number
+                if (i == 0 && Parsing.isNumeric(expressionSplit.get(1))) {
                     String negNum = expressionSplit.get(i);
                     negNum += expressionSplit.get(i + 1);
                     expressionSplit.set(i, negNum);
                     expressionSplit.remove(i + 1);
+                }else if(i == 0){
+
                 }
                 else if ((!(Parsing.isNumeric(expressionSplit.get(i-1))))){
 
@@ -48,6 +59,8 @@ public class Parsing {
         }
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Problem encountered.");
+
+            throw e;
         }
 
 

@@ -18,6 +18,7 @@ public class AddSubtract extends Calculation {
                     expression.remove(i);
 
                 } else if (expression.get(i).equals("-")) {
+
                     expression.set(i - 1, Double.toString(Double.parseDouble(expression.get(i + 1)) - Double.parseDouble(expression.get(i - 1))));
                     expression.remove(i + 1);
                     expression.remove(i);
