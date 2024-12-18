@@ -36,23 +36,23 @@ public class Parsing {
         }
         //case that minus is needed to be passed to the next number
         try{for (int i = 0; i < expressionSplit.size() - 1; i++) {
-            //if the index element is a minus
+            //if the index is a minus
             if(expressionSplit.get(i).equals("-")) {
-                //if index element 0 is a minus and index 1 is numeric
+                //if the index is 0 then its passed to the next number
                 if (i == 0 && Parsing.isNumeric(expressionSplit.get(1))) {
-                    String negNum = expressionSplit.get(i);//negNum is equal to value at index i
-                    negNum += expressionSplit.get(i + 1); //negNum is added to i+1, and i+1 + negNum is set negNum
-                    expressionSplit.set(i, negNum);//sets negNum to index position i
-                    expressionSplit.remove(i + 1);//removes leftover indices elements
+                    String negNum = expressionSplit.get(i);
+                    negNum += expressionSplit.get(i + 1);
+                    expressionSplit.set(i, negNum);
+                    expressionSplit.remove(i + 1);
                 }else if(i == 0){
-                    //if i==0 and is a minus do nothing
-                }
-                else if ((!(Parsing.isNumeric(expressionSplit.get(i-1))))){//if i-1 is not numeric
 
-                    String negNum = expressionSplit.get(i); //negNum is equal to value at index i
-                    negNum += expressionSplit.get(i + 1); //negNum is added to i+1, and i+1 + negNum is set negNum
-                    expressionSplit.set(i, negNum);//sets negNum to index position i
-                    expressionSplit.remove(i + 1);//removes leftover indices elements
+                }
+                else if ((!(Parsing.isNumeric(expressionSplit.get(i-1))))){
+
+                    String negNum = expressionSplit.get(i);
+                    negNum += expressionSplit.get(i + 1);
+                    expressionSplit.set(i, negNum);
+                    expressionSplit.remove(i + 1);
 
                 }
             }
