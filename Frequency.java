@@ -6,6 +6,7 @@ private double numberOfCycles;
 private double cycleTime;
 private double frequency;
 
+    //polymorphism, overriding MusicFunctions interface
     @Override
     public void function() {
 
@@ -15,6 +16,7 @@ private double frequency;
     System.out.println("Enter cycle completion time: ");
     this.cycleTime = input.nextInt();
 
+        //calculates frequency and prints to the terminal
         this.frequency = numberOfCycles / cycleTime;
         System.out.println("Frequency: " + frequency + "Hz");
     }

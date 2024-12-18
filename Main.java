@@ -27,9 +27,11 @@ public class Main {
                 String function = input.nextLine();
 
                 if (function.equals("F")) {
+                    //calls frequency function method
                     MusicFunctions musicFunctions = new Frequency();
                     musicFunctions.function();
                 } else if (function.equals("dB")) {
+                    //calls decibel function method
                     MusicFunctions musicFunctions = new Decibel();
                     musicFunctions.function();
                 }

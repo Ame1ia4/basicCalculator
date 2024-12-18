@@ -2,18 +2,20 @@ import java.util.ArrayList;
 
 public class BIMDAS {
 
-
+    //creates static method orderOfOps, which takes in variable splitInput from Array
     public static String orderOfOps(ArrayList<String> splitInput) {
 
+        //creates Brackets object under Calculation class since Brackets is a subclass
         Calculation calculator = new Brackets(splitInput);
-        while(calculator.getExpression().contains("(")){
-            calculator = new Brackets(calculator.calculate());
+        while(calculator.getExpression().contains("(")){//checks for brackets in the users calculation input
+            calculator = new Brackets(calculator.calculate());//while brackets are present calculator checks for brackets
         }
+        //this section runs through all of our operation classes in order of operations
         calculator = new Powers(calculator.calculate());
         calculator = new MultiplyDivide(calculator.calculate());
         calculator = new AddSubtract(calculator.calculate());
-        calculator.calculate();
-        return calculator.getFinal();
+        calculator.calculate();//calls calculate method for AddSubtract
+        return calculator.getFinal();//returns final result for program, the first element of an index
     }
 }
 
