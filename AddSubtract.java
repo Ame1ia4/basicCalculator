@@ -26,9 +26,9 @@ public class AddSubtract extends Calculation {
                 //if the element is a "-"
                 else if (expression.get(i).equals("-")) {
                     //if the last element of the reversed array is a "-" and the next element is a number
-                    // or if the element after the reversed array the "-" is not a number then it will
-                    if((i == expression.size() - 1 && Parsing.isNumeric(expression.get(i-1))) ||(!Parsing.isNumeric(expression.get(i+1)))){
-                        //sets the last element to the number * -1
+                    // or if the element after the "-" in the reversed array is not a number then it will multipy the previous number by -1
+                    if((i == expression.size() - 1 && Parsing.isNumeric(expression.get(i-1))) || (!Parsing.isNumeric(expression.get(i+1)))){
+                        //sets the - element to the number * -1
                         expression.set(i,Double.toString(Double.parseDouble(expression.get(i-1)) * (-1)));
                         expression.remove(i-1);//removes the number as its now where the "-" was
                     }
