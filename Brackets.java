@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 public class Brackets extends Calculation {
-    private int openBracket = 0;
-    private int closingBracket = 0;
+    private int openBracket;
+    private int closingBracket;
     public Brackets(ArrayList<String> expression ){
         super(expression);
     }
+
     @Override
     public ArrayList<String> calculate() {
         System.out.println(expression);
@@ -23,7 +24,7 @@ public class Brackets extends Calculation {
                 betweenBrackets.add(expression.get(i));
             }
 
-            expression.set(openBracket + 1, BIMDAS.recognition(betweenBrackets));
+            expression.set(openBracket + 1, BIMDAS.orderOfOps(betweenBrackets));
             for (int i = openBracket + 2; i < closingBracket; ) {
                 expression.remove(openBracket + 2);
                 closingBracket--;

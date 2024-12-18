@@ -9,7 +9,7 @@ public class Matrices {
         String operand = input.nextLine();
 //
         if (operand.equals("+")) {
-            matrixAdditionSubtraction.matrixSubtraction();
+            matrixAdditionSubtraction.matrices();
             matrixAdditionSubtraction.matrixAddition();
         } else if (operand.equals("-")) {
             matrixAdditionSubtraction.matrices();

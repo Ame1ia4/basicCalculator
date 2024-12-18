@@ -7,7 +7,7 @@ public class Parsing {
         this.input = input;
     }
 
-    public ArrayList<String> StringSplit3() {
+    public ArrayList<String> StringSplit() {
         //initialize array list that will store numbers and operators separately
         ArrayList<String> expressionSplit = new ArrayList<>();
 
@@ -47,9 +47,8 @@ public class Parsing {
             }
         }
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("prob");
+            System.out.println("Problem encountered.");
         }
-
 
 
         return expressionSplit;

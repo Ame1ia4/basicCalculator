@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class BIMDAS {
 
 
-    public static String recognition(ArrayList<String> splitInput) {
+    public static String orderOfOps(ArrayList<String> splitInput) {
 
         Calculation calculator = new Brackets(splitInput);
         while(calculator.getExpression().contains("(")){
@@ -16,3 +16,4 @@ public class BIMDAS {
         return calculator.getFinal();
     }
 }
+
