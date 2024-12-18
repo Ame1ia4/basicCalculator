@@ -4,7 +4,7 @@ public class Brackets extends Calculation {
     private int openBracket;
     private int closingBracket;
 
-    //constuctor that sets the expression within the superclass
+    //constructor that sets the expression within the superclass
     public Brackets(ArrayList<String> expression ){
         super(expression);
     }
